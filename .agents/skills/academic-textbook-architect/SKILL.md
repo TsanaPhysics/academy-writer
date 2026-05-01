@@ -15,7 +15,18 @@ This skill specializes in the structural design and pedagogical synthesis of aca
 5. **Pedagogical Integration**: Mandatory inclusion of Learning Objectives, Summaries, Case Studies, and Multi-level Exercises in each chapter.
 6. **Synthesis Focus (รศ./ศ.)**: Move beyond descriptive text to critical analysis and theoretical synthesis.
 
+## Project Structure & Planning Standards
+To ensure ease of development and maintenance, follow this systematic folder structure:
+- `/manuscript/markdown/`: Modular chapter files in Markdown.
+- `/manuscript/latex/`: Modular chapter files in LaTeX.
+- `/manuscript/images/`: Figures, charts, and diagrams.
+- `/manuscript/bib/`: Reference management (BibTeX).
+
 ## Core Capabilities
 - Synthesis of complex scientific concepts.
 - Integration of Bloom's Taxonomy for learning objectives.
 - Original academic perspectives and critical analysis.
+
+## Implementation Principles
+- **Modularity**: Break down chapters into manageable sub-headings.
+- **Hierarchical Planning**: Always start with a high-level outline before drafting.

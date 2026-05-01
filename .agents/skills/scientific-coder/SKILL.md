@@ -15,4 +15,15 @@ This skill focuses on implementing technical solutions and simulations to suppor
 - **Flutter**: 
     - Cross-platform educational app development.
     - IoT dashboard UI and API integration.
+
+## Project Structure & Clean Code Standards
+To ensure ease of development and maintenance, follow this systematic folder structure:
+- `/code/python/`: Modular Python scripts (Analysis, Simulation, AI).
+- `/code/flutter/`: Flutter project root.
+- `/data/`: Raw and processed datasets.
+- `/results/`: Generated plots, logs, and output files.
+
+## Implementation Principles
+- **Modularity**: Keep code blocks short and focused.
 - **Standards**: PEP 8 compliance, clear docstrings, and academic-grade comments.
+- **Portability**: Use relative paths and environment configurations.
