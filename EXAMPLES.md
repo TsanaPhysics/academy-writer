@@ -40,3 +40,16 @@ $$ [สมการหลัก] $$
 
 ### Environmental Science & Climate Change
 "การประเมินการกักเก็บคาร์บอน (Carbon Sequestration) ในพื้นที่ป่าไม้เขตร้อน อาศัยข้อมูลจาก **LiDAR** ร่วมกับแบบจำลองเชิงสถิติ เพื่อวิเคราะห์ความหนาแน่นของมวลชีวภาพ (Biomass) และความแปรปรวนของสภาพภูมิอากาศ..."
+
+## 5. Case Study: Physics of Durian (รศ. Standard)
+### Biomechanics of Pedicel
+"การวิเคราะห์ความต้านทานแรงดึง (Tensile Strength) ของก้านทุเรียนอาศัยทฤษฎีความเค้นตั้งฉาก (Normal Stress) โดยพิจารณาแรงดึงจากน้ำหนักผลที่กระทำผ่านพื้นที่หน้าตัดของเนื้อเยื่อท่อลำเลียงและไซเล็ม (Xylem):
+$$ \sigma = \frac{F}{A} = \frac{mg}{\pi r^2} $$
+พฤติกรรม Viscoelasticity ของก้านช่วยให้สามารถดูดซับพลังงานจลน์จากการแกว่งตามแรงลม ลดความเสี่ยงในการขาดออกจากขั้ว..."
+
+### Python Code for Structural Analysis
+```python
+def calculate_torque(mass_kg, distance_m):
+    g = 9.81
+    return mass_kg * g * distance_m
+```
