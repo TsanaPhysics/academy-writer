@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Pocket Magazine: TsanaPhysics Academic Suite</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Kanit', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+        }
+
+        .magazine-container {
+            width: 100vw;
+            height: 100vh;
+            overflow-x: auto;
+            display: flex;
+            scroll-snap-type: x mandatory;
+        }
+
+        .page {
+            min-width: 100vw;
+            height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: #fff;
+            box-sizing: border-box;
+            padding: 40px;
+        }
+
+        /* Page 1: Cover */
+        .page-cover {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+        }
+        .page-cover h1 { font-size: 4rem; margin: 0; }
+        .page-cover p { font-size: 1.5rem; opacity: 0.8; }
+        .page-cover .badge { 
+            background: #ff9800; 
+            padding: 10px 20px; 
+            border-radius: 50px; 
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Page 2: The 7 Skills */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 80%;
+        }
+        .skill-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-bottom: 5px solid #2a5298;
+        }
+        .skill-card:hover { transform: translateY(-10px); }
+        .skill-card i { font-size: 2rem; display: block; margin-bottom: 10px; }
+
+        /* Page 3: Donate */
+        .donate-section {
+            text-align: center;
+            max-width: 600px;
+        }
+        .donate-btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .footer-note {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .nav-hint {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="magazine-container">
+    <!-- Page 1 -->
+    <div class="page page-cover">
+        <h1>Science Academic Writer</h1>
+        <p>Advanced Agentic AI Suite for Modern Scholars</p>
+        <div class="badge">Special Edition: The 7 AI Specialists</div>
+        <div style="margin-top: 50px;">
+            <p>โดย ผศ.ดร.ชีวะ ทัศนา (TsanaPhysics)</p>
+        </div>
+        <div class="nav-hint">เลื่อนไปทางขวาเพื่ออ่านต่อ ➡️</div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page">
+        <h2 style="color: #1e3c72; font-size: 2.5rem;">7 ขุนพลไอที (The 7 AI Specialists)</h2>
+        <div class="grid-container">
+            <div class="skill-card"><i>🏗️</i> <strong>Architect</strong><br><small>วางโครงร่างตำรา & มาตรฐาน ก.พ.อ.</small></div>
+            <div class="skill-card"><i>🔬</i> <strong>Research Writer</strong><br><small>บทความวิจัยนานาชาติ Q1-Q4</small></div>
+            <div class="skill-card"><i>🚜</i> <strong>Agro-Physicist</strong><br><small>ฟิสิกส์ประยุกต์ & เกษตรอัจฉริยะ</small></div>
+            <div class="skill-card"><i>💻</i> <strong>Scientific Coder</strong><br><small>Python & Flutter Development</small></div>
+            <div class="skill-card"><i>🌐</i> <strong>Web Developer</strong><br><small>LMS, Portfolios & Analytics</small></div>
+            <div class="skill-card"><i>📄</i> <strong>LaTeX Publisher</strong><br><small>การจัดทำต้นฉบับระดับสากล</small></div>
+            <div class="skill-card"><i>🔍</i> <strong>Reviewer Pro</strong><br><small>ตรวจคุณภาพงานเขียนเชิงวิชาการ</small></div>
+            <div class="skill-card" style="background: #e3f2fd; border-bottom-color: #2196f3;"><i>✨</i> <strong>Future Proof</strong><br><small>อัปเดตต่อเนื่องตามเทคโนโลยี</small></div>
+        </div>
+        <div class="footer-note">Science Academic Writer Suite - Professional Academic Production</div>
+    </div>
+
+    <!-- Page 3 -->
+    <div class="page">
+        <div class="donate-section">
+            <h2 style="font-size: 3rem; color: #ff5722;">ร่วมสนับสนุนการพัฒนา ❤️</h2>
+            <p style="font-size: 1.2rem;">ร่วมเป็นส่วนหนึ่งในการขับเคลื่อนนวัตกรรมการศึกษาไทย เพื่อให้เราสามารถพัฒนา Skill ใหม่ๆ และดูแลระบบนี้ให้ใช้งานได้ฟรีสำหรับทุกคน</p>
+            <div style="background: #fff; padding: 30px; border: 2px dashed #ccc; border-radius: 20px;">
+                <p><strong>ช่องทางการสนับสนุน:</strong></p>
+                <p>ธนาคารกสิกรไทย (K-Bank)<br>เลขที่บัญชี: xxx-x-xxxxx-x<br>ชื่อบัญชี: นายชีวะ ทัศนา</p>
+                <a href="#" class="donate-btn">คลิกเพื่อสนับสนุนงบประมาณ</a>
+            </div>
+            <p style="margin-top: 30px; color: #666;">ทุกการสนับสนุนคือพลังในการสร้างนวัตกรรมดิจิทัลเพื่อการศึกษา</p>
+        </div>
+        <div class="footer-note">© 2026 TsanaPhysics. All Rights Reserved.</div>
+    </div>
+</div>
+
+</body>
+</html>
