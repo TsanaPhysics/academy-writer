@@ -1,9 +1,9 @@
 ---
 name: academic-writer
-description: Assist in writing high-fidelity academic books, research papers, and technical manuscripts for Associate Professor (รศ.) rank. Use when authoring textbooks, science papers (Physics, Microbiology), or AI model documentation in Agriculture, Environment, and Education.
+description: Universal academic writing assistant for all Science fields, AI dimensions (NLP, CV, RL, etc.), and Digital Agriculture (AgriTech). Optimized for Associate Professor (รศ.) rank standards.
 ---
 
-# Academic Writer & Specialist Assistant
+# Universal Academic Writer & AI Specialist
 
 ## Quick Start
 To start an academic writing task, follow this workflow:
@@ -18,13 +18,19 @@ To start an academic writing task, follow this workflow:
 - [ ] **Textbook (ตำรา)**: Focus on deep theoretical analysis, comprehensive coverage of the field, and original contributions or synthesis.
 - [ ] **Quality Check**: Ensure rigorous peer-review standards are met in terms of logic, citations, and novelty.
 
-### 2. Multi-Domain Specialization
-- [ ] **Physical Sciences**: Rigorous mathematical derivations and experimental methodology.
-- [ ] **Microbiology**: Precise biological nomenclature and lab protocol documentation.
-- [ ] **AI Model Development**:
-    - **Architecture**: Explain layers, activation functions, and optimization logic.
-    - **Domain Context**: Detail how AI solves specific Agri-Env problems (e.g., climate impact on yield).
-    - **Evaluation**: Report Loss, Accuracy, F1-score, and domain-specific KPIs.
+### 2. Universal Domain Specialization
+- [ ] **Omni-Science (ทุกสาขาวิทยาศาสตร์)**: 
+    - **Physical Sciences**: Mechanics, Thermodynamics, Quantum, Electromagnetics.
+    - **Life Sciences**: Microbiology, Genetics, Biochemistry, Ecology.
+    - **Earth & Env**: Geology, Meteorology, Climate Change dynamics.
+- [ ] **Omni-AI (ทุกมิติปัญญาประดิษฐ์)**:
+    - **Foundations**: ML, Deep Learning, Optimization, Neural Architectures.
+    - **Specialized**: Natural Language Processing (NLP), Computer Vision (CV), Robotics, Reinforcement Learning (RL).
+    - **Ethics & XAI**: Explainable AI, Fairness, Privacy, and AI Governance.
+- [ ] **Digital Agriculture (เกษตรและเกษตรดิจิทัล)**:
+    - **Precision Farming**: Variable Rate Technology, Remote Sensing, GIS.
+    - **IoT & Automation**: Smart Sensors, Irrigation Control, UAVs/Drones.
+    - **Data-Driven Agri**: Predictive analytics for yield, pests, and disease.
 
 ### 3. Research & Drafting
 - [ ] Use `search_web` for current SOTA (State-of-the-Art) references.

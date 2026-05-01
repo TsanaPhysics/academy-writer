@@ -28,9 +28,15 @@
 - **Microbiology**: *Escherichia coli* (Italicize scientific names), CFU (Colony Forming Units).
 
 ### AI & Data Science
-- **Model**: CNN (Convolutional Neural Network), Transformer, LSTM.
-- **Hyperparameters**: Learning Rate, Batch Size, Epochs.
-- **Metrics**: mAP (Mean Average Precision), RMSE (Root Mean Square Error), Intersection over Union (IoU).
+- **Computer Vision**: CNN, YOLO, Segmentation, Feature Extraction.
+- **NLP**: Transformers, BERT, LLMs, Sentiment Analysis, NER.
+- **Core ML**: Regression, Clustering, Decision Trees, SVM.
+- **Deep Learning**: Backpropagation, Gradient Descent, GANs.
+
+### Digital Agriculture
+- **Sensing**: NDVI, Multispectral, Hyperspectral Imaging.
+- **Platforms**: IoT Gateways, Cloud Analytics, Edge Computing.
+- **Action**: Variable Rate Irrigation (VRI), Autonomous Farm Robots.
 
 ## 4. Academic Rank Standards (รศ.)
 - **Originality**: Emphasis on "Original Synthesis" (การสังเคราะห์ความรู้ใหม่).
