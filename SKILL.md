@@ -1,5 +1,5 @@
 ---
-name: academic-writer
+name: science-academic-writer
 description: Universal academic writing assistant for all Science fields, AI dimensions (NLP, CV, RL, etc.), and Digital Agriculture (AgriTech). Optimized for Associate Professor (รศ.) rank standards.
 ---
 

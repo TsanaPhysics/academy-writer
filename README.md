@@ -1,4 +1,4 @@
-# Academy Writer (Academic Specialist AI Skill)
+# Science Academic Writer (Academic Specialist AI Skill)
 
 โครงร่างและชุดคำสั่ง (Prompt/Skill) สำหรับ AI เพื่อช่วยในการเขียนหนังสือ ตำรา และเอกสารคำสอน สำหรับขอตำแหน่งทางวิชาการระดับรองศาสตราจารย์ (รศ.) โดยเน้นด้านวิทยาศาสตร์และปัญญาประดิษฐ์ประยุกต์
 
