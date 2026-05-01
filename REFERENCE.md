@@ -43,8 +43,36 @@
 - **Practical Application**: Integration with local context (e.g., Thai Agriculture, Tropical Climate).
 - **Pedagogy**: Use of Bloom's Taxonomy for learning objectives in Teaching Documents.
 
-## 5. Logical Flow
-1. **Premise**: State the physical law.
-2. **Application**: Apply to durian farming.
-3. **Evidence**: Provide data or calculation.
-4. **Inference**: Conclusion for the farmer/student.
+## 5. Coding Standards for Academia
+### Python (Data Science & AI)
+- Use PEP 8 standards.
+- Include Docstrings for all functions/classes.
+- Provide comments for complex mathematical implementations.
+- **Example**: `plt.title()`, `sns.heatmap()` for data visualization.
+
+### Flutter (UI & App Dev)
+- Focus on Clean Architecture or BLoC pattern for state management.
+- Documentation of Widget trees and API integrations.
+- **Example**: `SfCartesianChart` for visualizing IoT data in Flutter.
+
+## 6. Systematic Project Structure
+Maintain the following hierarchy for textbook projects:
+```text
+[Project_Name]/
+├── main.tex             # Main LaTeX driver
+├── book.md              # Consolidated Markdown version
+├── chapters/            # Folder per chapter
+│   ├── ch1_intro/
+│   │   ├── ch1.md       # Chapter content (Markdown)
+│   │   ├── ch1.tex      # Chapter content (LaTeX)
+│   │   ├── code/        # Python/Flutter source files
+│   │   └── images/      # Diagrams and plots
+│   └── ...
+└── references.bib       # BibTeX citations
+```
+
+## 7. Logical Flow
+1. **Premise**: State the physical/scientific law or AI principle.
+2. **Application**: Apply to the specific domain (e.g., Agri, Env).
+3. **Evidence**: Provide data, calculation, or code simulation.
+4. **Inference**: High-level synthesis for the Associate Professor rank.

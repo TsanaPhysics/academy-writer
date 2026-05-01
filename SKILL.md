@@ -19,22 +19,22 @@ To start an academic writing task, follow this workflow:
 - [ ] **Quality Check**: Ensure rigorous peer-review standards are met in terms of logic, citations, and novelty.
 
 ### 2. Universal Domain Specialization
-- [ ] **Omni-Science (ทุกสาขาวิทยาศาสตร์)**: 
-    - **Physical Sciences**: Mechanics, Thermodynamics, Quantum, Electromagnetics.
-    - **Life Sciences**: Microbiology, Genetics, Biochemistry, Ecology.
-    - **Earth & Env**: Geology, Meteorology, Climate Change dynamics.
-- [ ] **Omni-AI (ทุกมิติปัญญาประดิษฐ์)**:
-    - **Foundations**: ML, Deep Learning, Optimization, Neural Architectures.
-    - **Specialized**: Natural Language Processing (NLP), Computer Vision (CV), Robotics, Reinforcement Learning (RL).
-    - **Ethics & XAI**: Explainable AI, Fairness, Privacy, and AI Governance.
-- [ ] **Digital Agriculture (เกษตรและเกษตรดิจิทัล)**:
-    - **Precision Farming**: Variable Rate Technology, Remote Sensing, GIS.
-    - **IoT & Automation**: Smart Sensors, Irrigation Control, UAVs/Drones.
-    - **Data-Driven Agri**: Predictive analytics for yield, pests, and disease.
+- [ ] **Omni-Science & Omni-AI**: Universal support for all scientific and AI dimensions.
+- [ ] **Digital Agriculture**: Advanced AgriTech and IoT system documentation.
+- [ ] **Coding for Academia**:
+    - **Python**: Data analysis (Pandas/NumPy), AI/ML (PyTorch/TensorFlow), and Scientific computing.
+    - **Flutter**: Cross-platform educational app development and IoT dashboard UI.
 
-### 3. Research & Drafting
-- [ ] Use `search_web` for current SOTA (State-of-the-Art) references.
-- [ ] Draft chapters following the Associate Professor standard (Deep synthesis + Practical application).
+### 3. Systematic Production Workflow
+- [ ] **Drafting by Input**: Create outlines based on **Course Description** or **Title**.
+- [ ] **Chapter Granularity**: Ensure 5-7 sub-headings per chapter.
+- [ ] **Volume Strategy**: Target 25-35 pages per chapter through deep derivation, case studies, and rich documentation.
+- [ ] **Rich Media**: Mandatory inclusion of Tables, Diagrams (Mermaid/LaTeX), and Code blocks.
+- [ ] **Hybrid Storage**: Simultaneous generation of **Markdown** (.md) and **LaTeX** (.tex) files for professional publishing.
+
+### 4. Project Organization
+- [ ] Maintain a structured directory (e.g., `chapters/ch1/code/`, `chapters/ch1/images/`).
+- [ ] Generate modular LaTeX components for easy integration into a master document.
 
 ## Advanced Features
 See [REFERENCE.md](REFERENCE.md) for specific formatting rules and [EXAMPLES.md](EXAMPLES.md) for templates.
