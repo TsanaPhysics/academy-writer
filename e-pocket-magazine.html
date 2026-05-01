@@ -3,154 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-Pocket Magazine: TsanaPhysics Academic Suite</title>
+    <title>e-Pocket Magazine: Future Academic Suite</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Outfit:wght@400;700&display=swap');
         
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Kanit', sans-serif;
-            background: #f0f2f5;
-            color: #333;
+        :root {
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --accent: #ff0080;
+            --bg: #050b18;
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
-        .magazine-container {
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: var(--bg);
+            font-family: 'Kanit', sans-serif;
+            color: white;
+        }
+
+        /* 3D Background */
+        #canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+        }
+
+        .magazine-viewport {
             width: 100vw;
             height: 100vh;
-            overflow-x: auto;
+            perspective: 2000px;
             display: flex;
-            scroll-snap-type: x mandatory;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .magazine-pages {
+            width: 90vw;
+            height: 80vh;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
 
         .page {
-            min-width: 100vw;
-            height: 100vh;
-            scroll-snap-align: start;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            position: relative;
-            background: #fff;
-            box-sizing: border-box;
             padding: 40px;
+            box-sizing: border-box;
+            backface-visibility: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
 
-        /* Page 1: Cover */
-        .page-cover {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            text-align: center;
-        }
-        .page-cover h1 { font-size: 4rem; margin: 0; }
-        .page-cover p { font-size: 1.5rem; opacity: 0.8; }
-        .page-cover .badge { 
-            background: #ff9800; 
-            padding: 10px 20px; 
-            border-radius: 50px; 
-            font-weight: bold;
-            margin-top: 20px;
+        .page-1 { transform: translateZ(0); }
+        .page-2 { transform: rotateY(180deg) translateZ(1px); }
+        .page-3 { transform: rotateX(180deg) translateZ(1px); }
+
+        /* Content Styling */
+        .title-3d {
+            font-family: 'Outfit', sans-serif;
+            font-size: 5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            margin: 0;
+            filter: drop-shadow(0 10px 20px rgba(0, 242, 254, 0.3));
         }
 
-        /* Page 2: The 7 Skills */
-        .grid-container {
+        .skill-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            width: 80%;
+            width: 100%;
         }
-        .skill-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s;
-            border-bottom: 5px solid #2a5298;
-        }
-        .skill-card:hover { transform: translateY(-10px); }
-        .skill-card i { font-size: 2rem; display: block; margin-bottom: 10px; }
 
-        /* Page 3: Donate */
-        .donate-section {
+        .skill-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 20px;
             text-align: center;
-            max-width: 600px;
+            transition: 0.3s;
         }
-        .donate-btn {
-            display: inline-block;
-            background: #4CAF50;
+        .skill-item:hover {
+            background: rgba(0, 242, 254, 0.1);
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
+        .skill-item i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+
+        /* Donate Section */
+        .donate-box {
+            background: rgba(255,255,255,0.02);
+            padding: 40px;
+            border-radius: 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .qr-placeholder {
+            width: 250px;
+            height: 250px;
+            background: white;
+            margin: 20px auto;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            font-weight: bold;
+            position: relative;
+        }
+        .qr-placeholder img { width: 90%; }
+
+        .btn {
+            background: linear-gradient(45deg, var(--accent), #ff00cc);
             color: white;
             padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1.2rem;
-            margin-top: 20px;
             font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(255, 0, 128, 0.3);
+            transition: 0.3s;
         }
+        .btn:hover { transform: scale(1.1); box-shadow: 0 15px 30px rgba(255, 0, 128, 0.5); }
 
-        .footer-note {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #999;
+        /* Navigation Controls */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            display: flex;
+            gap: 20px;
+            z-index: 100;
         }
+        .control-btn {
+            background: var(--glass);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+        .control-btn:hover { background: var(--primary); color: black; }
 
-        .nav-hint {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-            font-size: 1.2rem;
-            color: #ccc;
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
+        .floating { animation: float 4s ease-in-out infinite; }
+
     </style>
 </head>
 <body>
 
-<div class="magazine-container">
-    <!-- Page 1 -->
-    <div class="page page-cover">
-        <h1>Science Academic Writer</h1>
-        <p>Advanced Agentic AI Suite for Modern Scholars</p>
-        <div class="badge">Special Edition: The 7 AI Specialists</div>
-        <div style="margin-top: 50px;">
-            <p>โดย ผศ.ดร.ชีวะ ทัศนา (TsanaPhysics)</p>
-        </div>
-        <div class="nav-hint">เลื่อนไปทางขวาเพื่ออ่านต่อ ➡️</div>
-    </div>
+<div id="canvas-bg"></div>
 
-    <!-- Page 2 -->
-    <div class="page">
-        <h2 style="color: #1e3c72; font-size: 2.5rem;">7 ขุนพลไอที (The 7 AI Specialists)</h2>
-        <div class="grid-container">
-            <div class="skill-card"><i>🏗️</i> <strong>Architect</strong><br><small>วางโครงร่างตำรา & มาตรฐาน ก.พ.อ.</small></div>
-            <div class="skill-card"><i>🔬</i> <strong>Research Writer</strong><br><small>บทความวิจัยนานาชาติ Q1-Q4</small></div>
-            <div class="skill-card"><i>🚜</i> <strong>Agro-Physicist</strong><br><small>ฟิสิกส์ประยุกต์ & เกษตรอัจฉริยะ</small></div>
-            <div class="skill-card"><i>💻</i> <strong>Scientific Coder</strong><br><small>Python & Flutter Development</small></div>
-            <div class="skill-card"><i>🌐</i> <strong>Web Developer</strong><br><small>LMS, Portfolios & Analytics</small></div>
-            <div class="skill-card"><i>📄</i> <strong>LaTeX Publisher</strong><br><small>การจัดทำต้นฉบับระดับสากล</small></div>
-            <div class="skill-card"><i>🔍</i> <strong>Reviewer Pro</strong><br><small>ตรวจคุณภาพงานเขียนเชิงวิชาการ</small></div>
-            <div class="skill-card" style="background: #e3f2fd; border-bottom-color: #2196f3;"><i>✨</i> <strong>Future Proof</strong><br><small>อัปเดตต่อเนื่องตามเทคโนโลยี</small></div>
-        </div>
-        <div class="footer-note">Science Academic Writer Suite - Professional Academic Production</div>
-    </div>
-
-    <!-- Page 3 -->
-    <div class="page">
-        <div class="donate-section">
-            <h2 style="font-size: 3rem; color: #ff5722;">ร่วมสนับสนุนการพัฒนา ❤️</h2>
-            <p style="font-size: 1.2rem;">ร่วมเป็นส่วนหนึ่งในการขับเคลื่อนนวัตกรรมการศึกษาไทย เพื่อให้เราสามารถพัฒนา Skill ใหม่ๆ และดูแลระบบนี้ให้ใช้งานได้ฟรีสำหรับทุกคน</p>
-            <div style="background: #fff; padding: 30px; border: 2px dashed #ccc; border-radius: 20px;">
-                <p><strong>ช่องทางการสนับสนุน:</strong></p>
-                <p>ธนาคารกสิกรไทย (K-Bank)<br>เลขที่บัญชี: xxx-x-xxxxx-x<br>ชื่อบัญชี: นายชีวะ ทัศนา</p>
-                <a href="#" class="donate-btn">คลิกเพื่อสนับสนุนงบประมาณ</a>
+<div class="magazine-viewport">
+    <div class="magazine-pages" id="magazine">
+        <!-- Page 1: Home -->
+        <div class="page page-1">
+            <p style="text-transform: uppercase; letter-spacing: 5px; color: var(--secondary);">E-Pocket Magazine</p>
+            <h1 class="title-3d floating">ACADEMIC SUITE</h1>
+            <p style="font-size: 1.5rem; opacity: 0.7;">The Future of Scientific Production</p>
+            <div style="margin-top: 50px; text-align: center;">
+                <p>Curated by <strong>TsanaPhysics</strong></p>
+                <p style="font-size: 0.9rem; opacity: 0.5;">ผศ.ดร.ชีวะ ทัศนา | Digital Academic Pioneer</p>
             </div>
-            <p style="margin-top: 30px; color: #666;">ทุกการสนับสนุนคือพลังในการสร้างนวัตกรรมดิจิทัลเพื่อการศึกษา</p>
         </div>
-        <div class="footer-note">© 2026 TsanaPhysics. All Rights Reserved.</div>
+
+        <!-- Page 2: The 7 Specialists -->
+        <div class="page page-2">
+            <h2 style="font-size: 2.5rem; margin-bottom: 40px; color: var(--primary);">7 THE SPECIALISTS</h2>
+            <div class="skill-grid">
+                <div class="skill-item"><i class="fas fa-drafting-outline"></i>Architect</div>
+                <div class="skill-item"><i class="fas fa-microscope"></i>Researcher</div>
+                <div class="skill-item"><i class="fas fa-seedling"></i>Agro-Physicist</div>
+                <div class="skill-item"><i class="fas fa-code"></i>Scientific Coder</div>
+                <div class="skill-item"><i class="fas fa-globe"></i>Web Dev</div>
+                <div class="skill-item"><i class="fas fa-file-pdf"></i>LaTeX Expert</div>
+                <div class="skill-item"><i class="fas fa-user-check"></i>Reviewer Pro</div>
+                <div class="skill-item" style="border-style: dashed;"><i class="fas fa-plus"></i>Future</div>
+            </div>
+        </div>
+
+        <!-- Page 3: Donate -->
+        <div class="page page-3">
+            <div class="donate-box">
+                <h2 style="color: var(--accent); font-size: 2rem;">สนับสนุนการพัฒนา ❤️</h2>
+                <p>ร่วมขับเคลื่อนนวัตกรรมการศึกษาไทย</p>
+                
+                <div class="qr-placeholder">
+                    <!-- PromptPay QR Code Mockup -->
+                    <div style="text-align: center; color: #1e3c72;">
+                        <p style="font-size: 0.8rem; margin: 0;">PROMPTPAY</p>
+                        <i class="fas fa-qrcode" style="font-size: 8rem;"></i>
+                        <p style="font-size: 1rem; margin: 0;">093-742-2654</p>
+                    </div>
+                </div>
+                
+                <div style="margin: 20px 0;">
+                    <p><strong>นายชีวะ ทัศนา</strong></p>
+                    <p style="opacity: 0.7;">ธนาคารกรุงเทพ (Bangkok Bank)</p>
+                </div>
+                
+                <a href="#" class="btn">SUPPORT NOW</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="control-btn" onclick="flipPage(0)"><i class="fas fa-home"></i></button>
+        <button class="control-btn" onclick="flipPage(1)"><i class="fas fa-th-large"></i></button>
+        <button class="control-btn" onclick="flipPage(2)"><i class="fas fa-heart"></i></button>
     </div>
 </div>
+
+<script>
+    let currentRotation = 0;
+    const magazine = document.getElementById('magazine');
+
+    function flipPage(index) {
+        if (index === 0) {
+            magazine.style.transform = 'rotateY(0deg)';
+        } else if (index === 1) {
+            magazine.style.transform = 'rotateY(180deg)';
+        } else if (index === 2) {
+            magazine.style.transform = 'rotateX(180deg)';
+        }
+    }
+
+    // Floating Particles for 3D effect
+    const bg = document.getElementById('canvas-bg');
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = '2px';
+        particle.style.height = '2px';
+        particle.style.background = 'white';
+        particle.style.borderRadius = '50%';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.opacity = Math.random();
+        particle.style.boxShadow = '0 0 10px white';
+        bg.appendChild(particle);
+    }
+</script>
 
 </body>
 </html>
